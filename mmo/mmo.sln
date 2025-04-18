@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{AFB8C9D4-1EC9-4CA7-92A1-64EC1A2A428F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor", "Editor\Editor.vcxproj", "{38297869-29AA-4261-9398-BAF3A95B6E9C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AFB8C9D4-1EC9-4CA7-92A1-64EC1A2A428F} = {AFB8C9D4-1EC9-4CA7-92A1-64EC1A2A428F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{1DF7232C-746F-425E-913A-0404CB751317}"
 	ProjectSection(ProjectDependencies) = postProject
