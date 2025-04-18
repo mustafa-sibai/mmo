@@ -55,11 +55,19 @@ void Window::Create(const wchar_t* windowTitle, int width, int height)
 void Window::Update()
 {
 	MSG msg;
-	// Continue to retrieve messages until WM_QUIT is received.
-	while (GetMessage(&msg, nullptr, 0, 0))
+
+	// Non-blocking message loop using PeekMessage
+	while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 	{
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
+
+		// Exit the loop if a WM_QUIT message is received
+		if (msg.message == WM_QUIT)
+		{
+			isWindowOpen = false;
+			break;
+		}
 	}
 }
 

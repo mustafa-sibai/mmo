@@ -1,24 +1,20 @@
-﻿#include <iostream>
+#include <iostream>
 #include "Window.h"
-#include "Networking/Server.h"
 #include "Networking/Client.h"
 
 int main()
 {
 	Window window;
-	window.Create(L"MMO", 1280, 720);
-
-	Server server;
-	server.Initialize("3000");
+	window.Create(L"Client Sandbox", 1280, 720);
 
 	Client client;
 	client.Initialize();
-	client.Connect("127.0.0.1", "3000");
+	client.Connect("127.0.0.1", "3001");
+
 
 	while (window.IsOpen())
 	{
 		window.Update();
-		server.Update();
 		client.Update();
 	}
 }
