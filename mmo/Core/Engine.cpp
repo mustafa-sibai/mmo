@@ -15,6 +15,7 @@ void Engine::Run()
 	while (m_window.IsOpen())
 	{
 		m_window.Update();
+		m_keyboard.Update();
 		m_sceneManager.Update();
 		m_sceneManager.Render();
 	}

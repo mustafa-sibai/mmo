@@ -1,4 +1,6 @@
 #include "NetworkScene.h"
+#include "Core/Engine.h"
+#include <iostream>
 
 void NetworkScene::Initialize()
 {
@@ -17,6 +19,20 @@ void NetworkScene::PostInitialize()
 
 void NetworkScene::Update()
 {
+	if (Engine::GetInstance()->GetKeyboard().IsKeyPressed(Keyboard::KeyCode::Space))
+	{
+		std::cout << "Space key pressed!" << std::endl;
+	}
+
+	if (Engine::GetInstance()->GetKeyboard().IsKeyHeld(Keyboard::KeyCode::A))
+	{
+		std::cout << "A key pressed!" << std::endl;
+	}
+
+	if (Engine::GetInstance()->GetKeyboard().IsKeyReleased(Keyboard::KeyCode::A))
+	{
+		std::cout << "A key released!" << std::endl;
+	}
 }
 
 void NetworkScene::Render()

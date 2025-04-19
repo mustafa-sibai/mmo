@@ -185,6 +185,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="IO\Keyboard.cpp" />
     <ClCompile Include="Networking\Serialization\NetworkBinaryReader.cpp" />
     <ClCompile Include="Networking\Serialization\NetworkBinaryWriter.cpp" />
     <ClCompile Include="Networking\Client.cpp" />
@@ -195,6 +196,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
   <ItemGroup>
     <ClInclude Include="API.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="IO\Keyboard.h" />
     <ClInclude Include="Networking\Serialization\NetworkBinaryReader.h" />
     <ClInclude Include="Networking\Serialization\NetworkBinaryWriter.h" />
     <ClInclude Include="Networking\Client.h" />

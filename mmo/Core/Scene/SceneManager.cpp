@@ -35,6 +35,8 @@ void SceneManager::LoadScene(int sceneIndex)
 		return;
 	}
 
+	m_currentSceneIndex = sceneIndex;
+
 	m_scenes[m_currentSceneIndex]->Initialize();
 	m_scenes[m_currentSceneIndex]->Load();
 	m_scenes[m_currentSceneIndex]->PostInitialize();
