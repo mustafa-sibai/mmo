@@ -74,18 +74,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
+    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
+    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
+    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
+    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,10 +104,13 @@
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>   xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\"
-
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>rmdir /S /Q "$(SolutionDir)Output\$(MSBuildProjectName)\Include"
+xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\Core\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -122,10 +129,13 @@
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>   xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\"
-
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>rmdir /S /Q "$(SolutionDir)Output\$(MSBuildProjectName)\Include"
+xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\Core\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -140,10 +150,13 @@
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>   xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\"
-
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>rmdir /S /Q "$(SolutionDir)Output\$(MSBuildProjectName)\Include"
+xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\Core\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -162,10 +175,13 @@
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>   xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\"
-
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>rmdir /S /Q "$(SolutionDir)Output\$(MSBuildProjectName)\Include"
+xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildProjectName)\Include\Core\"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Networking\Serialization\NetworkBinaryReader.cpp" />

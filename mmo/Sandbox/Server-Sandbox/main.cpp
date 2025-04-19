@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Window.h"
-#include "Networking/Server.h"
+#include "Core/Window.h"
+#include "Core/Networking/Server.h"
 
 int main()
 {
