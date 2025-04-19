@@ -1,8 +1,10 @@
 #include "Window.h"
+
+#include <iostream>
 #include <string>
 
 Window::Window() :
-	hWnd(nullptr), hInstance(GetModuleHandle(nullptr)), isWindowOpen(false)
+	hWnd(nullptr), hInstance(GetModuleHandle(nullptr)), Width(0), Height(0), isWindowOpen(false)
 {
 }
 
@@ -10,7 +12,7 @@ Window::~Window()
 {
 }
 
-void Window::Create(const wchar_t* windowTitle, int width, int height)
+void Window::Create(const wchar_t* InWindowTitle, int InWidth, int InHeight)
 {
 	const wchar_t CLASS_NAME[] = L"CoreClass";
 
@@ -26,14 +28,17 @@ void Window::Create(const wchar_t* windowTitle, int width, int height)
 		return;
 	}
 
+	Width = InWidth;
+	Height = InHeight;
+
 	// Create the window
 	hWnd = CreateWindowEx(
 		0,                              // Optional window styles.
 		CLASS_NAME,                     // Window class
-		windowTitle,                    // Window text
+		InWindowTitle,                    // Window text
 		WS_OVERLAPPEDWINDOW,            // Window style
 		CW_USEDEFAULT, CW_USEDEFAULT,   // Position
-		width, height,                  // Size
+		InWidth, InHeight,                  // Size
 		nullptr,                        // Parent window    
 		nullptr,                        // Menu
 		hInstance,                      // Instance handle
@@ -50,41 +55,55 @@ void Window::Create(const wchar_t* windowTitle, int width, int height)
 	UpdateWindow(hWnd);
 
 	isWindowOpen = true;
+
+	pD3D11Graphics = std::make_unique<D3D11Graphics>(hWnd);
 }
 
 void Window::Update()
 {
-	MSG msg;
-	// Continue to retrieve messages until WM_QUIT is received.
-	while (GetMessage(&msg, nullptr, 0, 0))
-	{
+	MSG msg = { 0 };
+	while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+		if (msg.message == WM_QUIT) {
+			isWindowOpen = false;
+		}
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
+		std::cout << "Processed message: 0x" << std::hex << msg.message << "\n";
 	}
+}
+
+D3D11Graphics& Window::GetD3D11Graphics()
+{
+		return *pD3D11Graphics;
 }
 
 LRESULT CALLBACK Window::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	Window* window = reinterpret_cast<Window*>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
 
-	switch (message)
-	{
-	case WM_CREATE:
-	{
-		// Retrieve the pointer passed via CreateWindowEx.
+	switch (message) {
+	case WM_CREATE: {
 		CREATESTRUCT* cs = reinterpret_cast<CREATESTRUCT*>(lParam);
-		Window* window = reinterpret_cast<Window*>(cs->lpCreateParams);
+		window = reinterpret_cast<Window*>(cs->lpCreateParams);
 		SetWindowLongPtr(hWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(window));
-		// Continue with default creation.
-		return DefWindowProc(hWnd, message, wParam, lParam);
+		break;
 	}
-	case WM_DESTROY:
-		if (window)
-			window->isWindowOpen = false;
 
+	case WM_DESTROY: {
+		if (window) window->isWindowOpen = false;
 		PostQuitMessage(0);
 		return 0;
-	default:
-		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
+
+	case WM_SIZE: {
+		if (window) {
+			window->Width = LOWORD(lParam);
+			window->Height = HIWORD(lParam);
+			// Note: Renderer handles resize separately!
+		}
+		break;
+	}
+	}
+
+	return DefWindowProc(hWnd, message, wParam, lParam);
 }
