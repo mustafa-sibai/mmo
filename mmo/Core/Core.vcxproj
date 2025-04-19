@@ -168,12 +168,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Networking\Serialization\NetworkBinaryReader.cpp" />
+    <ClCompile Include="Networking\Serialization\NetworkBinaryWriter.cpp" />
     <ClCompile Include="Networking\Client.cpp" />
     <ClCompile Include="Networking\Server.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="API.h" />
+    <ClInclude Include="Networking\Serialization\NetworkBinaryReader.h" />
+    <ClInclude Include="Networking\Serialization\NetworkBinaryWriter.h" />
     <ClInclude Include="Networking\Client.h" />
     <ClInclude Include="Networking\Server.h" />
     <ClInclude Include="Window.h" />

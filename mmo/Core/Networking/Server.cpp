@@ -3,6 +3,8 @@
 #include <ws2tcpip.h>
 #include <chrono>
 #include <thread>
+#include "Serialization/NetworkBinaryReader.h"
+#include "Serialization/NetworkBinaryWriter.h"
 
 Server::Server() :
 	serverSocket(INVALID_SOCKET), clientSocket(INVALID_SOCKET), clientConnected(false)
@@ -26,6 +28,13 @@ Server::~Server()
 
 void Server::Initialize(const std::string& port)
 {
+	NetworkBinaryWriter writer;
+	writer.Write(99);
+
+	NetworkBinaryReader reader(writer.GetBuffer());
+	int value = reader.ReadInt();
+	std::cout << "Read value: " << value << std::endl;
+
 	// Initialize Winsock
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 	{
