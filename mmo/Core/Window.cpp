@@ -55,13 +55,11 @@ void Window::Create(const wchar_t* InWindowTitle, int InWidth, int InHeight)
 	UpdateWindow(hWnd);
 
 	isWindowOpen = true;
-
-	pD3D11Graphics = std::make_unique<D3D11Graphics>(hWnd);
 }
 
 void Window::Update()
 {
-MSG msg = { 0 };
+	MSG msg = { 0 };
 
 	// Non-blocking message loop using PeekMessage
 	while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -76,11 +74,6 @@ MSG msg = { 0 };
 			break;
 		}
 	}
-}
-
-D3D11Graphics& Window::GetD3D11Graphics()
-{
-		return *pD3D11Graphics;
 }
 
 LRESULT CALLBACK Window::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)

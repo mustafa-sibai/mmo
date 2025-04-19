@@ -1,9 +1,6 @@
-#include "CorePCH.h"
 #include "D3D11Graphics.h"
 
-#pragma comment(lib,"d3d11.lib")
-
-D3D11Graphics::D3D11Graphics(HWND hWnd)
+D3D11Graphics::D3D11Graphics(const HWND& hWnd)
 {
 	DXGI_SWAP_CHAIN_DESC sd = {};
 	sd.BufferDesc.Width = 0;

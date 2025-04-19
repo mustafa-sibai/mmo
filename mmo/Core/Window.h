@@ -26,9 +26,7 @@ public:
 	void Update();
 	inline bool IsOpen() { return isWindowOpen; }
 
-	HWND GetHandle() const { return hWnd; }  // Allows Renderer to access HWND
-	D3D11Graphics& GetD3D11Graphics();
-	std::unique_ptr<D3D11Graphics> pD3D11Graphics;
+	const HWND& GetHWND() const { return hWnd; }
 
 	Timer Timer;
 private:
