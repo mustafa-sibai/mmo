@@ -2,7 +2,8 @@
 
 Keyboard::Keyboard()
 {
-	keys = {
+	keys =
+	{
 		KeyCode::Backspace, KeyCode::Tab, KeyCode::Enter, KeyCode::Shift,
 		KeyCode::Control, KeyCode::Alt, KeyCode::Pause, KeyCode::CapsLock,
 		KeyCode::Escape, KeyCode::Space, KeyCode::PageUp, KeyCode::PageDown,
@@ -25,23 +26,28 @@ Keyboard::Keyboard()
 	};
 }
 
-bool Keyboard::IsKeyPressed(KeyCode key) {
+bool Keyboard::IsKeyPressed(KeyCode key)
+{
 	return currentKeyState[key] && !previousKeyState[key];
 }
 
-bool Keyboard::IsKeyReleased(KeyCode key) {
+bool Keyboard::IsKeyReleased(KeyCode key)
+{
 	return !currentKeyState[key] && previousKeyState[key];
 }
 
-bool Keyboard::IsKeyHeld(KeyCode key) {
+bool Keyboard::IsKeyHeld(KeyCode key)
+{
 	return currentKeyState[key];
 }
 
-void Keyboard::Update() {
+void Keyboard::Update()
+{
 	// Simulate updating key states (replace with actual input handling logic)
 	previousKeyState = currentKeyState;
 
-	for (KeyCode code : keys) {
+	for (KeyCode code : keys)
+	{
 		currentKeyState[code] = ((GetAsyncKeyState(static_cast<int>(code)) & 0x8000) != 0);
 	}
 }
