@@ -1,10 +1,7 @@
 #include <iostream>
 #include "Core/Window.h"
-#include "Core/Networking/TCPServer.h"
-#include "Core/Networking/PacketFactory.h"
-#include "Core/Networking/Packets/PositionPacket.h"
-#include "Core/Networking/Serialization/NetworkBuffer.h"
-#include <Core/Math/Vector2.h>
+#include <Core/Networking/Networking.h>
+#include <Core/Math/Math.h>
 
 int main()
 {
@@ -14,10 +11,17 @@ int main()
 	TCPServer server;
 	server.Initialize("3001");
 
-	PacketFactory packetFactory;
+	//Send
+	NetworkBuffer buffer = (new PositionPacket(Vector2f(1, 2)))->Serialize();
 
-	PositionPacket* positionPacket = new PositionPacket(Vector2f(1, 2));
-	const NetworkBuffer buffer = packetFactory.SerializePacket(positionPacket);
+	//Receive
+	BasePacket* packet = (new BasePacket())->Deserialize(buffer.data(), buffer.size());
+
+	if (packet->GetType() == BasePacket::PacketType::Position)
+	{
+		PositionPacket* positionPacket = (new PositionPacket())->Deserialize(buffer.data());
+		std::cout << "Position: " << positionPacket->GetPosition() << std::endl;
+	}
 
 	while (window.IsOpen())
 	{

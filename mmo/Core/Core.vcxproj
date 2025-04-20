@@ -192,9 +192,6 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClCompile Include="Core\Math\Vector2.cpp" />
     <ClCompile Include="Core\Math\Vector3.cpp" />
     <ClCompile Include="Core\Math\Vector4.cpp" />
-    <ClCompile Include="Core\Networking\Packets\Packet.cpp" />
-    <ClCompile Include="Core\Networking\PacketFactory.cpp" />
-    <ClCompile Include="Core\Networking\Packets\PacketHeader.cpp" />
     <ClCompile Include="Core\Networking\Packets\PositionPacket.cpp" />
     <ClCompile Include="Core\Networking\Serialization\NetworkBinaryReader.cpp" />
     <ClCompile Include="Core\Networking\Serialization\NetworkBinaryWriter.cpp" />
@@ -207,6 +204,8 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClCompile Include="Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Math\Math.h" />
+    <ClInclude Include="Core\Networking\Networking.h" />
     <ClInclude Include="Core\Networking\Packets\BasePacket.h" />
     <ClInclude Include="Core\API.h" />
     <ClInclude Include="Core\Engine.h" />
@@ -215,9 +214,6 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClInclude Include="Core\Math\Vector2.h" />
     <ClInclude Include="Core\Math\Vector3.h" />
     <ClInclude Include="Core\Math\Vector4.h" />
-    <ClInclude Include="Core\Networking\Packets\Packet.h" />
-    <ClInclude Include="Core\Networking\PacketFactory.h" />
-    <ClInclude Include="Core\Networking\Packets\PacketHeader.h" />
     <ClInclude Include="Core\Networking\Packets\PositionPacket.h" />
     <ClInclude Include="Core\Networking\Serialization\NetworkBinaryReader.h" />
     <ClInclude Include="Core\Networking\Serialization\NetworkBinaryWriter.h" />

@@ -20,5 +20,7 @@ public:
 	void Connect(const std::string& ipAddress, const std::string& port);
 	void Update();
 
+	u_long GetAvailableData();
+
 	inline bool IsConnected() { return connected; }
 };

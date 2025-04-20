@@ -1,15 +1,33 @@
 #pragma once
+#include "Core/API.h"
 #include <Core/Networking/Serialization/NetworkBinaryWriter.h>
 #include <Core/Networking/Serialization/NetworkBinaryReader.h>
 #include <Core/Math/Vector2.h>
-#include "PacketHeader.h"
 
-class BasePacket {
+class CORE_API BasePacket
+{
+protected:
+	NetworkBinaryWriter writer;
+	NetworkBinaryReader reader;
+
 public:
+	enum class PacketType
+	{
+		Unknown = -1,
+		Position = 5,
+	};
+
+	PacketType type;
+	uint32_t length;
+
+	BasePacket();
+	BasePacket(PacketType type);
 	virtual ~BasePacket() = default;
 
-	virtual void Serialize(NetworkBinaryWriter& writer) const = 0;
-	virtual void Deserialize(NetworkBinaryReader& reader) = 0;
-	virtual PacketHeader::PacketType GetType() const = 0;
-	virtual size_t GetSize() const = 0;
+	BasePacket* Serialize();
+	BasePacket* Deserialize(const uint8_t* buffer);
+	BasePacket* Deserialize(const uint8_t* buffer, unsigned long long size);
+
+	PacketType GetType() const { return type; }
+	size_t GetSize() const { return length; }
 };

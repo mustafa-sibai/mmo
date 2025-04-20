@@ -1,10 +1,13 @@
 #include "PositionPacket.h"
 
-PositionPacket::PositionPacket()
+PositionPacket::PositionPacket() :
+	BasePacket(BasePacket::PacketType::Position),
+	position(Vector2f(0, 0))
 {
 }
 
 PositionPacket::PositionPacket(const Vector2f& position) :
+	BasePacket(BasePacket::PacketType::Position),
 	position(position)
 {
 }
@@ -13,14 +16,18 @@ PositionPacket::~PositionPacket()
 {
 }
 
-void PositionPacket::Serialize(NetworkBinaryWriter& writer) const
+const NetworkBuffer& PositionPacket::Serialize()
 {
-	writer.WriteFloat(position.x);
-	writer.WriteFloat(position.y);
+	BasePacket::Serialize();
+	writer.WriteVector2f(position);
+	writer.Seek(sizeof(int32_t));
+	writer.WriteInt32(static_cast<int32_t>(writer.GetBuffer().size()), NetworkBinaryWriter::OperationMode::Overwrite);
+	return writer.GetBuffer();
 }
 
-void PositionPacket::Deserialize(NetworkBinaryReader& reader)
+PositionPacket* PositionPacket::Deserialize(const uint8_t* buffer)
 {
-	position.x = reader.ReadFloat();
-	position.y = reader.ReadFloat();
+	BasePacket::Deserialize(buffer);
+	position = reader.ReadVector2f();
+	return this;
 }

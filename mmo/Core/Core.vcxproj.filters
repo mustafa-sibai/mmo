@@ -30,12 +30,6 @@
     <ClCompile Include="Core\Math\Vector4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Networking\PacketFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Networking\Packets\PacketHeader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Networking\Packets\PositionPacket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -69,9 +63,6 @@
     <ClCompile Include="Core\Networking\Packets\BasePacket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Networking\Packets\Packet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Networking\Serialization\NetworkBuffer.h">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,15 +81,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Math\Vector4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Networking\Packets\Packet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Networking\PacketFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Networking\Packets\PacketHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Networking\Packets\PositionPacket.h">
@@ -138,6 +120,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Networking\Packets\BasePacket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Math\Math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Networking\Networking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

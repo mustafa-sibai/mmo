@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/API.h"
 #include "Core/Networking/Serialization/NetworkBuffer.h"
+#include <Core/Math/Math.h>
 #include <vector>
 #include <string>
 
@@ -8,6 +9,15 @@ class CORE_API NetworkBinaryWriter
 {
 private:
 	NetworkBuffer m_buffer;
+	size_t position;
+
+public:
+	enum class OperationMode
+	{
+		None,
+		Append,
+		Overwrite,
+	};
 
 public:
 	NetworkBinaryWriter();
@@ -25,28 +35,33 @@ public:
 	// Move assignment operator
 	NetworkBinaryWriter& operator=(NetworkBinaryWriter&& other) noexcept;
 
-	// Write an integer (written in network byte order)
+	void WriteInt16(int16_t value, OperationMode operationMode = OperationMode::Append);
+	void WriteUInt16(uint16_t value, OperationMode operationMode = OperationMode::Append);
 
-	void WriteInt16(int16_t value);
-	void WriteUInt16(uint16_t value);
+	void WriteInt32(int32_t value, OperationMode operationMode = OperationMode::Append);
+	void WriteUInt32(uint32_t value, OperationMode operationMode = OperationMode::Append);
 
-	void WriteInt32(int32_t value);
-	void WriteUInt32(uint32_t value);
+	void WriteBool(bool value, OperationMode operationMode = OperationMode::Append);
+	void WriteFloat(float value, OperationMode operationMode = OperationMode::Append);
+	void WriteDouble(double value, OperationMode operationMode = OperationMode::Append);
+	void WriteString(const std::string& value, OperationMode operationMode = OperationMode::Append);
 
-	// Write a bool (as one byte: 1 for true, 0 for false)
-	void WriteBool(bool value);
-	void WriteFloat(float value);
-	void WriteDouble(double value);
+	void WriteVector2f(const Vector2f& value, OperationMode operationMode = OperationMode::Append);
+	void WriteVector2i(const Vector2i& value, OperationMode operationMode = OperationMode::Append);
 
-	// Write a std::string.
-	// First writes the length (as int), then the string bytes.
-	void WriteString(const std::string& value);
+	void WriteVector3f(const Vector3f& value, OperationMode operationMode = OperationMode::Append);
+	void WriteVector3i(const Vector3i& value, OperationMode operationMode = OperationMode::Append);
 
-	inline void Clear() { m_buffer.clear(); }
+	void WriteVector4f(const Vector4f& value, OperationMode operationMode = OperationMode::Append);
+	void WriteVector4i(const Vector4i& value, OperationMode operationMode = OperationMode::Append);
 
-	inline const NetworkBuffer& GetBuffer() const { return m_buffer; }
+	void Clear();
+
+	inline void Seek(size_t position) { this->position = position; }
+	inline NetworkBuffer& GetBuffer() { return m_buffer; }
 
 private:
-	// Utility: Append raw bytes to the buffer
+	void Write(const void* data, size_t size, OperationMode operationMode);
+	void Overwrite(const void* data, size_t size);
 	void Append(const void* data, size_t size);
 };

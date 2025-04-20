@@ -139,6 +139,36 @@ std::string NetworkBinaryReader::ReadString()
 	return result;
 }
 
+Vector2f NetworkBinaryReader::ReadVector2f()
+{
+	return Vector2f(ReadFloat(), ReadFloat());
+}
+
+Vector2i NetworkBinaryReader::ReadVector2i()
+{
+	return Vector2i(ReadInt32(), ReadInt32());
+}
+
+Vector3f NetworkBinaryReader::ReadVector3f()
+{
+	return Vector3f(ReadFloat(), ReadFloat(), ReadFloat());
+}
+
+Vector3i NetworkBinaryReader::ReadVector3i()
+{
+	return Vector3i(ReadInt32(), ReadInt32(), ReadInt32());
+}
+
+Vector4f NetworkBinaryReader::ReadVector4f()
+{
+	return Vector4f(ReadFloat(), ReadFloat(), ReadFloat(), ReadFloat());
+}
+
+Vector4i NetworkBinaryReader::ReadVector4i()
+{
+	return Vector4i(ReadInt32(), ReadInt32(), ReadInt32(), ReadInt32());
+}
+
 void NetworkBinaryReader::Seek(size_t position)
 {
 	if (position > m_buffer.size())

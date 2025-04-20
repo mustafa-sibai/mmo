@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Core/API.h"
 #include "Core/Networking/Serialization/NetworkBuffer.h"
+#include "Core/Math/Math.h"
 #include <vector>
 #include <string>
 
@@ -27,26 +28,25 @@ public:
 	// Move assignment operator
 	NetworkBinaryReader& operator=(NetworkBinaryReader&& other) noexcept;
 
-	// Reads an int16, assuming network byte order in the buffer.
 	int16_t ReadInt16();
 	uint16_t ReadUInt16();
 
-	// Reads an int32, assuming network byte order in the buffer.
 	int32_t ReadInt32();
 	uint32_t ReadUInt32();
 
-	// Reads a bool (stored as one byte, 0 = false, nonzero = true).
 	bool ReadBool();
-
-	// Reads a float (the sender and receiver must agree on the representation).
 	float ReadFloat();
-
-	// Reads a double.
 	double ReadDouble();
-
-	// Reads a string:
-	// First an int (length in network byte order), then that many bytes.
 	std::string ReadString();
+
+	Vector2f ReadVector2f();
+	Vector2i ReadVector2i();
+
+	Vector3f ReadVector3f();
+	Vector3i ReadVector3i();
+
+	Vector4f ReadVector4f();
+	Vector4i ReadVector4i();
 
 	// Seeks to a specific position in the buffer.
 	void Seek(size_t position);

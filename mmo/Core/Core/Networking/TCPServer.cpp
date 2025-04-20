@@ -123,12 +123,22 @@ void TCPServer::Update()
 		clientConnected = true;
 		std::cout << "Client connected!" << std::endl;
 	}
+}
 
-	// Send hello string to the client once connected
-	const char* helloMsg = "Hello I am the server!\n";
-	int bytesSent = send(clientSocket, helloMsg, static_cast<int>(strlen(helloMsg)), 0);
-	if (bytesSent == SOCKET_ERROR)
+void TCPServer::Send(const NetworkBuffer& buffer)
+{
+	if (clientConnected)
 	{
-		std::cerr << "Send failed with error: " << WSAGetLastError() << std::endl;
+		int bytesSent = send(clientSocket, reinterpret_cast<const char*>(buffer.data()), static_cast<int>(buffer.size()), 0);
+		if (bytesSent == SOCKET_ERROR)
+		{
+			std::cerr << "Send failed." << std::endl;
+			clientConnected = false;
+			closesocket(clientSocket);
+		}
+		else
+		{
+			std::cout << "Sent " << bytesSent << " bytes to client." << std::endl;
+		}
 	}
 }

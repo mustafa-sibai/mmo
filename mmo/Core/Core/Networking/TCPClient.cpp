@@ -3,6 +3,7 @@
 #include <ws2tcpip.h>
 #include <chrono>
 #include <thread>
+#include "Networking.h"
 
 TCPClient::TCPClient() :
 	wsaData(), clientSocket(INVALID_SOCKET), connected(false)
@@ -110,12 +111,15 @@ void TCPClient::Update()
 	if (!connected)
 		return;
 
+	//get the size from recv before calling recv
+	// Create a buffer to receive data
+	NetworkBuffer nb(1024);
+
 	// Receive data from the server
-	int bytesReceived = recv(clientSocket, buffer, sizeof(buffer) - 1, 0);
+	int bytesReceived = recv(clientSocket, reinterpret_cast<char*>(nb.data()), 1024, 0);
 	if (bytesReceived > 0)
 	{
-		buffer[bytesReceived] = '\0'; // Null-terminate the received data
-		std::cout << "Server says: " << buffer << std::endl;
+
 	}
 	else if (bytesReceived == SOCKET_ERROR)
 	{
