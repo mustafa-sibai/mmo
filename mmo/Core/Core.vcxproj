@@ -74,22 +74,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
