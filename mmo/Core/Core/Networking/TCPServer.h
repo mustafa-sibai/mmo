@@ -22,5 +22,5 @@ public:
 	void Initialize(const std::string& port);
 	void Update();
 
-	void Send(const NetworkBuffer& buffer);
+	//void Send(const NetworkBuffer& buffer);
 };

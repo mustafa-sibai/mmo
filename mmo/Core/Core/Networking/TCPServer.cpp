@@ -124,7 +124,7 @@ void TCPServer::Update()
 		std::cout << "Client connected!" << std::endl;
 	}
 }
-
+/*
 void TCPServer::Send(const NetworkBuffer& buffer)
 {
 	if (clientConnected)
@@ -141,4 +141,4 @@ void TCPServer::Send(const NetworkBuffer& buffer)
 			std::cout << "Sent " << bytesSent << " bytes to client." << std::endl;
 		}
 	}
-}
+}*/
