@@ -1,15 +1,15 @@
-#include "Client.h"
+#include "TCPClient.h"
 #include <iostream>
 #include <ws2tcpip.h>
 #include <chrono>
 #include <thread>
 
-Client::Client() :
+TCPClient::TCPClient() :
 	wsaData(), clientSocket(INVALID_SOCKET), connected(false)
 {
 }
 
-Client::~Client()
+TCPClient::~TCPClient()
 {
 	if (clientSocket != INVALID_SOCKET)
 	{
@@ -19,7 +19,7 @@ Client::~Client()
 	WSACleanup();
 }
 
-void Client::Initialize()
+void TCPClient::Initialize()
 {
 	// Initialize Winsock
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
@@ -29,7 +29,7 @@ void Client::Initialize()
 	}
 }
 
-void Client::Connect(const std::string& ipAddress, const std::string& port)
+void TCPClient::Connect(const std::string& ipAddress, const std::string& port)
 {
 	struct addrinfo hints = {};
 	struct addrinfo* result = nullptr;
@@ -105,7 +105,7 @@ void Client::Connect(const std::string& ipAddress, const std::string& port)
 	std::cout << "Connected to the server!" << std::endl;
 }
 
-void Client::Update()
+void TCPClient::Update()
 {
 	if (!connected)
 		return;

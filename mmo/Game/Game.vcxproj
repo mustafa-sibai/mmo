@@ -73,13 +73,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(SolutionDir)Output\Core\$(Platform)\$(Configuration)\bin\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core</IncludePath>
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>$(SolutionDir)Output\Core\$(Platform)\$(Configuration)\bin\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core</IncludePath>
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
   </PropertyGroup>
@@ -87,13 +87,13 @@
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
     <LibraryPath>$(SolutionDir)Output\Core\$(Platform)\$(Configuration)\bin\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Platform)\$(Configuration)\Intermediate\</IntDir>
     <LibraryPath>$(SolutionDir)Output\Core\$(Platform)\$(Configuration)\bin\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Output\Core\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Core</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

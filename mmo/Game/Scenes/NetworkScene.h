@@ -1,13 +1,13 @@
 #pragma once
 #include "Core/Scene/Scene.h"
-#include "Core/Networking/Server.h"
-#include "Core/Networking/Client.h"
+#include "Core/Networking/TCPServer.h"
+#include "Core/Networking/TCPClient.h"
 
 class NetworkScene : public Scene
 {
 private:
-	Server server;
-	Client client;
+	TCPServer server;
+	TCPClient client;
 
 public:
 	NetworkScene() = default;

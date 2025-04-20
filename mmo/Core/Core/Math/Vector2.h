@@ -10,6 +10,7 @@ public:
 	T y;
 
 	Vector2() : x(0), y(0) {}
+	Vector2(T value) : x(value), y(value) {}
 	Vector2(T x, T y) : x(x), y(y) {}
 
 	Vector2 operator+(const Vector2& other) const

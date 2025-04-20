@@ -1,4 +1,4 @@
-#include "Server.h"
+#include "TCPServer.h"
 #include <iostream>
 #include <ws2tcpip.h>
 #include <chrono>
@@ -6,12 +6,12 @@
 #include "Serialization/NetworkBinaryReader.h"
 #include "Serialization/NetworkBinaryWriter.h"
 
-Server::Server() :
+TCPServer::TCPServer() :
 	serverSocket(INVALID_SOCKET), clientSocket(INVALID_SOCKET), clientConnected(false)
 {
 }
 
-Server::~Server()
+TCPServer::~TCPServer()
 {
 	if (clientSocket != INVALID_SOCKET)
 	{
@@ -26,13 +26,13 @@ Server::~Server()
 	WSACleanup();
 }
 
-void Server::Initialize(const std::string& port)
+void TCPServer::Initialize(const std::string& port)
 {
 	NetworkBinaryWriter writer;
-	writer.Write(99);
+	writer.WriteInt32(99);
 
 	NetworkBinaryReader reader(writer.GetBuffer());
-	int value = reader.ReadInt();
+	int value = reader.ReadInt32();
 	std::cout << "Read value: " << value << std::endl;
 
 	// Initialize Winsock
@@ -101,10 +101,10 @@ void Server::Initialize(const std::string& port)
 		return;
 	}
 
-	std::cout << "Server initialized and listening on port " << port << std::endl;
+	std::cout << "TCPServer initialized and listening on port " << port << std::endl;
 }
 
-void Server::Update()
+void TCPServer::Update()
 {
 	if (!clientConnected)
 	{

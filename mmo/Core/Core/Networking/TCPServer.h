@@ -3,7 +3,7 @@
 #include <WinSock2.h>
 #include <string>
 
-class CORE_API Server
+class CORE_API TCPServer
 {
 private:
 	WSADATA wsaData;
@@ -16,8 +16,8 @@ private:
 	bool clientConnected;
 
 public:
-	Server();
-	~Server();
+	TCPServer();
+	~TCPServer();
 
 	void Initialize(const std::string& port);
 	void Update();
