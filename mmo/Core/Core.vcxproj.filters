@@ -128,5 +128,8 @@
     <ClInclude Include="Core\Networking\Networking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Renderer\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

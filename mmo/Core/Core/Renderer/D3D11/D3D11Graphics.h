@@ -15,6 +15,9 @@ private:
 	ID3D11PixelShader* pPixelShader = nullptr;
 	ID3D11InputLayout* pInputLayout = nullptr;
 	ID3D11Buffer* pVertexBuffer = nullptr;
+	ID3DBlob* pBlob = nullptr;
+
+	const HWND* phWnd = nullptr;
 
 public:
 	D3D11Graphics(const HWND& hWnd);
@@ -23,6 +26,5 @@ public:
 	~D3D11Graphics();
 	void EndFrame();
 	void ClearBuffer(float red, float green, float blue) noexcept;
-	void InitTriangle();
 	void DrawTestTriangle();
 };

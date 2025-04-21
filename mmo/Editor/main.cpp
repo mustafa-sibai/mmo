@@ -20,6 +20,7 @@ int main()
 		const float c = sin(window.Timer.Peek()) / 2.0f + 0.5f;
 
 		d3D11Graphics.ClearBuffer(c, c, 1.0f);
+		d3D11Graphics.DrawTestTriangle();
 		d3D11Graphics.EndFrame();
 	}
 }

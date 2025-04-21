@@ -220,6 +220,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClInclude Include="Core\Networking\TCPClient.h" />
     <ClInclude Include="Core\Networking\TCPServer.h" />
     <ClInclude Include="Core\Renderer\D3D11\D3D11Graphics.h" />
+    <ClInclude Include="Core\Renderer\Vertex.h" />
     <ClInclude Include="Core\Scene\Scene.h" />
     <ClInclude Include="Core\Scene\SceneManager.h" />
     <ClInclude Include="Core\Timer.h" />
