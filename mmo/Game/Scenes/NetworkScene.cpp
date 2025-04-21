@@ -1,6 +1,7 @@
 #include "NetworkScene.h"
 #include "Core/Engine.h"
 #include <iostream>
+#include <Core/Debug.h>
 
 void NetworkScene::Initialize()
 {
@@ -11,6 +12,9 @@ void NetworkScene::Initialize()
 
 void NetworkScene::Load()
 {
+	Debug::LogInfo("This is an info message");
+	Debug::LogWarning("This is an warning message");
+	Debug::LogError("This is an error message");
 }
 
 void NetworkScene::PostInitialize()

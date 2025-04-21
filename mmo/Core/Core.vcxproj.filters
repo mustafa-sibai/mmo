@@ -66,6 +66,9 @@
     <ClCompile Include="Core\Networking\Serialization\NetworkBuffer.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\IO\Keyboard.h">
@@ -129,6 +132,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Renderer\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

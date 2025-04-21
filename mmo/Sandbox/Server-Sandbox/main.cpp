@@ -2,6 +2,7 @@
 #include "Core/Window.h"
 #include <Core/Networking/Networking.h>
 #include <Core/Math/Math.h>
+#include <Core/Debug.h>
 
 int main()
 {

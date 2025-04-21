@@ -97,6 +97,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +121,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,6 +146,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);CORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Core;$(SolutionDir)Output\Core\Include;$(SolutionDir)mmo\Core</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,6 +170,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -202,6 +206,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClCompile Include="Core\Scene\SceneManager.cpp" />
     <ClCompile Include="Core\Timer.cpp" />
     <ClCompile Include="Core\Window.cpp" />
+    <ClCompile Include="Core\Debug.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Math\Math.h" />
@@ -225,6 +230,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClInclude Include="Core\Scene\SceneManager.h" />
     <ClInclude Include="Core\Timer.h" />
     <ClInclude Include="Core\Window.h" />
+    <ClInclude Include="Core\Debug.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

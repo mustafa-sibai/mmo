@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "Core/Debug.h"
 
 Engine Engine::instance;
 
