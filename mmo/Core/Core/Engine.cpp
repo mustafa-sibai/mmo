@@ -18,6 +18,9 @@ void Engine::Run()
 	m_window.Create(L"Engine", 1280, 720);
 	m_sceneManager.LoadScene(0);
 
+	m_audio.Initialize();
+	m_audio.Play();
+
 	while (m_window.IsOpen())
 	{
 		m_window.Update();

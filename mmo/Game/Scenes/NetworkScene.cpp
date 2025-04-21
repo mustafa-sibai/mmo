@@ -58,7 +58,7 @@ void NetworkScene::Update()
 		std::cout << "Right mouse button pressed!" << std::endl;
 	}
 
-	std::cout << "Mouse Position: " << Engine::GetInstance()->GetMouse().GetPosition(true) << std::endl;
+	//std::cout << "Mouse Position: " << Engine::GetInstance()->GetMouse().GetPosition(true) << std::endl;
 }
 
 void NetworkScene::Render()

@@ -72,6 +72,9 @@
     <ClCompile Include="Core\IO\WAVFileReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Audio\Audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Input\Keyboard.h">
@@ -141,6 +144,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\IO\WAVFileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Audio\Audio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,6 +4,7 @@
 #include "Core/Scene/SceneManager.h"
 #include "Core/Input/Keyboard.h"
 #include "Core/Input/Mouse.h"
+#include "Core/Audio/Audio.h"
 
 class CORE_API Engine
 {
@@ -12,6 +13,7 @@ private:
 	SceneManager m_sceneManager;
 	Keyboard m_keyboard;
 	Mouse m_mouse;
+	Audio m_audio;
 
 	static Engine instance;
 
