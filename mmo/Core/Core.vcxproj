@@ -191,8 +191,8 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
   <ItemGroup>
     <ClCompile Include="Core\Networking\Packets\BasePacket.cpp" />
     <ClCompile Include="Core\Engine.cpp" />
-    <ClCompile Include="Core\IO\Keyboard.cpp" />
-    <ClCompile Include="Core\IO\Mouse.cpp" />
+    <ClCompile Include="Core\Input\Keyboard.cpp" />
+    <ClCompile Include="Core\Input\Mouse.cpp" />
     <ClCompile Include="Core\Math\Vector2.cpp" />
     <ClCompile Include="Core\Math\Vector3.cpp" />
     <ClCompile Include="Core\Math\Vector4.cpp" />
@@ -207,6 +207,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClCompile Include="Core\Timer.cpp" />
     <ClCompile Include="Core\Window.cpp" />
     <ClCompile Include="Core\Debug.cpp" />
+    <ClCompile Include="Core\IO\WAVFileReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Math\Math.h" />
@@ -214,8 +215,8 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClInclude Include="Core\Networking\Packets\BasePacket.h" />
     <ClInclude Include="Core\API.h" />
     <ClInclude Include="Core\Engine.h" />
-    <ClInclude Include="Core\IO\Keyboard.h" />
-    <ClInclude Include="Core\IO\Mouse.h" />
+    <ClInclude Include="Core\Input\Keyboard.h" />
+    <ClInclude Include="Core\Input\Mouse.h" />
     <ClInclude Include="Core\Math\Vector2.h" />
     <ClInclude Include="Core\Math\Vector3.h" />
     <ClInclude Include="Core\Math\Vector4.h" />
@@ -231,6 +232,7 @@ xcopy /Y /I /S "$(MSBuildProjectDirectory)\*.h" "$(SolutionDir)Output\$(MSBuildP
     <ClInclude Include="Core\Timer.h" />
     <ClInclude Include="Core\Window.h" />
     <ClInclude Include="Core\Debug.h" />
+    <ClInclude Include="Core\IO\WAVFileReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

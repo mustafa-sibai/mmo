@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\IO\Keyboard.cpp">
+    <ClCompile Include="Core\Input\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\IO\Mouse.cpp">
+    <ClCompile Include="Core\Input\Mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Math\Vector2.cpp">
@@ -69,12 +69,15 @@
     <ClCompile Include="Core\Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Core\IO\WAVFileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\IO\Keyboard.h">
+    <ClInclude Include="Core\Input\Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\IO\Mouse.h">
+    <ClInclude Include="Core\Input\Mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Math\Vector2.h">
@@ -135,6 +138,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\IO\WAVFileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

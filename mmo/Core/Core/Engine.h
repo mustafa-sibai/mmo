@@ -2,8 +2,8 @@
 #include "Core/API.h"
 #include "Core/Window.h"
 #include "Core/Scene/SceneManager.h"
-#include "Core/IO/Keyboard.h"
-#include "Core/IO/Mouse.h"
+#include "Core/Input/Keyboard.h"
+#include "Core/Input/Mouse.h"
 
 class CORE_API Engine
 {
