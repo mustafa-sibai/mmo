@@ -5,6 +5,8 @@
 
 class CORE_API Keyboard
 {
+	friend class Engine;
+
 public:
 	enum class KeyCode : int {
 		Unknown = 0,
@@ -91,12 +93,17 @@ private:
 	std::unordered_map<KeyCode, bool> previousKeyState;
 	std::vector<KeyCode> keys;
 
-public:
+private:
 	Keyboard();
+	Keyboard(const Keyboard&) = delete;
+	Keyboard(Keyboard&&) = delete;
+	Keyboard& operator=(const Keyboard&) = delete;
 	~Keyboard() = default;
 
+	void Update();
+
+public:
 	bool IsKeyPressed(KeyCode key);
 	bool IsKeyReleased(KeyCode key);
 	bool IsKeyHeld(KeyCode key);
-	void Update();
 };

@@ -37,6 +37,28 @@ void NetworkScene::Update()
 	{
 		std::cout << "A key released!" << std::endl;
 	}
+
+	if (Engine::GetInstance()->GetMouse().IsButtonPressed(Mouse::ButtonCode::LeftButton))
+	{
+		std::cout << "Left mouse button pressed!" << std::endl;
+	}
+
+	if (Engine::GetInstance()->GetMouse().IsButtonHeld(Mouse::ButtonCode::LeftButton))
+	{
+		std::cout << "Left mouse button held!" << std::endl;
+	}
+
+	if (Engine::GetInstance()->GetMouse().IsButtonReleased(Mouse::ButtonCode::LeftButton))
+	{
+		std::cout << "Left mouse button released!" << std::endl;
+	}
+
+	if (Engine::GetInstance()->GetMouse().IsButtonPressed(Mouse::ButtonCode::RightButton))
+	{
+		std::cout << "Right mouse button pressed!" << std::endl;
+	}
+
+	std::cout << "Mouse Position: " << Engine::GetInstance()->GetMouse().GetPosition(true) << std::endl;
 }
 
 void NetworkScene::Render()
